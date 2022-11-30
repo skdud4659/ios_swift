@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         guard let numString = sender.currentTitle else {return}
         // 2) numberLabel 숫자에 따라 변경
         numberLabel.text = numString
-        // 3) 선택한 숫자를 저장 (선택)
+        // 3) 선택한 숫자를 저장 (선택) > numberLabel에서 사용해도 괜춘
         guard let num = Int(numString) else {return}
         myNumber = num
         
