@@ -83,6 +83,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func doneButtonTapped(_ sender: UIButton) {
+        // becomeFirstResponder의 반대로 실행되어 키보드가 내려감.
+        textField.resignFirstResponder()
+    }
+    
+    // 화면의 탭을 감지 >> textField 외부 클릭 시 키보드 내려감.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textField.resignFirstResponder()
     }
     
 }
