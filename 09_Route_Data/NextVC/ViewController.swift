@@ -41,18 +41,31 @@ class ViewController: UIViewController {
     }
     
     
-    
+    // segue(세그웨이) : 화면의 이동을 담당하는 객체
     // 3) 스토리보드에서의 화면 이동(간접 세그웨이)
     @IBAction func storyboardWithSegueButtonTapped(_ sender: UIButton) {
-        
-
-        
-        
-        
-        
+        performSegue(withIdentifier: "toThirdVC", sender: self)
     }
     
-
+    // 세그웨이를 통해 데이터를 전달하려면 메소드가 필요
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segue 명칭이 toThirdVC인 경우
+        if segue.identifier == "toThirdVC" {
+            // destination에 접근하여
+            let thirdVC = segue.destination as! ThirdViewController
+            // 데이터 전달
+            thirdVC.someString = "할머니 상어 뚜루루뚜루"
+        } else if segue.identifier == "toFourthVC" {
+            // destination에 접근하여
+            let fourthVC = segue.destination as! FourthViewController
+            // 데이터 전달
+            fourthVC.someString = "할아버지 상어 뚜루루뚜루"
+        }
+    }
     
+    // 4) 버튼 등을 통한 **직접 세그웨이**에서 자동으로 호출하는 메소드 > 조건에 따라 세그웨이를 실행할지 말지 결정하는 메소드
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        <#code#>
+    }
 }
 
